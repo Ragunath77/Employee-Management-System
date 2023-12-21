@@ -1,11 +1,12 @@
 import React from "react";
+import { Link,useNavigate } from 'react-router-dom'
 import './login.css';
 import picImage from './Pic.png';
 
 const SignUpComponent = () => {
+  const navigate = useNavigate();
   const validateForm = (e) => {
     e.preventDefault();
-
     const username = e.target.elements.username.value.trim();
     const password = e.target.elements.password.value.trim();
     const confirmPassword = e.target.elements.confirmPassword.value.trim();
@@ -38,17 +39,30 @@ const SignUpComponent = () => {
       errorMessage.textContent = 'Passwords do not match.';
       return;
     }
-    errorMessage.style.color = 'green';
-    errorMessage.textContent = 'Signup successful!';
+    else{
+      navigate("/");
+      return;
+    }
   };
-
+  const inlineStyles = {
+    margin: 0,
+    overflow: 'hidden',
+    backgroundColor: 'white',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100vh',
+    background: 'linear-gradient(120deg, #2980b9, #8e44ad)',
+  };
   return (
+    <div style={inlineStyles}>
     <div className="box">
       <div className="sub">
         <img src={picImage} alt="Placeholder" />
       </div>
+      
       <div className="right">
-        <div className="si">
+      <div className="si">
           <h2>SIGN UP</h2>
         </div>
         <form id="loginForm" onSubmit={(e) => validateForm(e)}>
@@ -67,13 +81,14 @@ const SignUpComponent = () => {
           <div className="error" id="error-message"></div>
 
           <center>
-            <button type="submit">Sign up</button>
+            <button type="submit">Signup</button>
           </center>
           <div className="sign">
-            Already a member? <a href="login">Login</a>
+            Already a member?<Link to="/">Login</Link>
           </div>
         </form>
       </div>
+    </div>
     </div>
   );
 };

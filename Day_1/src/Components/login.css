@@ -1,4 +1,4 @@
-body {
+/* body {
     margin: 0;
     overflow: hidden;
     background-color: white;
@@ -7,7 +7,13 @@ body {
     justify-content: center;
     height: 100vh;
     background: linear-gradient(120deg, #2980b9, #8e44ad);
-}
+} */
+.app-bar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000; 
+  }
 .sign{
     margin-top: 10px;
 }
@@ -17,7 +23,7 @@ body {
 .box {
     background-color: #cccccb;
     width: 800px;
-    height: 500px;
+    height: 520px;
     display: flex;
 }
 
@@ -37,7 +43,7 @@ body {
 
 img {
     width: 400px;
-    height: 500px;
+    height: 100%
 }
 
 .pro {

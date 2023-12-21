@@ -1,9 +1,11 @@
 import React from "react";
+import { Link, useNavigate } from 'react-router-dom';
 import './login.css';
 import picImage from './Pic.png';
 import profileImage from './profile.png';
 
 const LoginComponent = () => {
+  const navigate = useNavigate();
   const validateForm = (e) => {
     e.preventDefault();
 
@@ -11,6 +13,9 @@ const LoginComponent = () => {
     const password = e.target.elements.password.value.trim();
     const errorMessage = document.getElementById('error-message');
     errorMessage.textContent = '';
+
+    const validUsername = 'Ragunath@777';
+    const validPassword = 'Ragunath@777';
 
     if (username === '' || password === '') {
       errorMessage.textContent = 'Username and password are required.';
@@ -32,11 +37,28 @@ const LoginComponent = () => {
       return;
     }
 
-    errorMessage.style.color = 'green';
-    errorMessage.textContent = 'Login successful!';
+    if (username === validUsername && password === validPassword) {
+      navigate("/home");
+      return;
+    }
+    else{
+      errorMessage.textContent = 'Invalid username or password.';
+    }
+
+  };
+  const inlineStyles = {
+    margin: 0,
+    overflow: 'hidden',
+    backgroundColor: 'white',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100vh',
+    background: 'linear-gradient(120deg, #2980b9, #8e44ad)',
   };
 
   return (
+    <div style={inlineStyles}>
     <div className="box">
       <div className="sub">
         <img src={picImage} alt="Placeholder" />
@@ -61,10 +83,11 @@ const LoginComponent = () => {
             <button type="submit">Login</button>
           </center>
           <div className="sign">
-          Not a member? <a href="signup">sign up</a>
-        </div>
+            Not a member? <Link to="Sign">signup</Link>
+          </div>
         </form>
       </div>
+    </div>
     </div>
   );
 };
