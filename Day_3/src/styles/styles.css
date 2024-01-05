@@ -1,0 +1,36 @@
+/* styles.css */
+.employee-status-dashboard {
+    margin: 20px;
+  }
+  
+  .employee-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .employee-table th, .employee-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .employee-table th {
+    background-color: #f4f4f4;
+  }
+  
+  .employee-status-card {
+    background-color: #fff;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .employee-status-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (max-width: 768px) {
+    .employee-table th, .employee-table td {
+      font-size: 14px;
+    }
+  }
+  
